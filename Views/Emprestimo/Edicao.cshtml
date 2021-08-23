@@ -1,6 +1,7 @@
 @model CadEmprestimoViewModel
 @{
-    ViewData["Title"] = "Edição de Emprestimo";
+    
+    ViewData["Title"] = "Edição de Empréstimos";
 }
 
 <h1 class="row justify-content-md-center">Edição de Empréstimo</h1>
@@ -15,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Emprestimo.Telefone">Telefone</label>
-                <input asp-for="Emprestimo.Telefone" class="form-control"/>
+                <input asp-for="Emprestimo.Telefone" class="form-control" readonly="readonly"/>
             </div>
         </fieldset>
         <fieldset>
@@ -30,10 +31,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Emprestimo.LivroId">Livro</label>
-                <select asp-for="Emprestimo.LivroId" class="form-control">
+                <select asp-for="Emprestimo.LivroId" readonly class="form-control-plaintext">
                     @foreach(Livro l in Model.Livros)
                     {
-                        <option value="@l.Id">@l.Titulo</option>
+                        <option disabled value="@l.Id"> @l.Titulo</option>
                     }
                 </select>
             </div>
