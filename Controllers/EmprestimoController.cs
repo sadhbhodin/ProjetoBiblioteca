@@ -38,6 +38,7 @@ namespace Biblioteca.Controllers
 
         public IActionResult Listagem(string tipoFiltro, string filtro)
         {
+            EmprestimoService emprestimoService = new EmprestimoService();
             Autenticacao.CheckLogin(this);
             FiltrosEmprestimos objFiltro = null;
             if (!string.IsNullOrEmpty(filtro))
@@ -46,8 +47,8 @@ namespace Biblioteca.Controllers
                 objFiltro.Filtro = filtro;
                 objFiltro.TipoFiltro = tipoFiltro;
             }
-            EmprestimoService emprestimoService = new EmprestimoService();
             return View(emprestimoService.ListarTodos(objFiltro));
+
         }
 
         public IActionResult Edicao(int id)
